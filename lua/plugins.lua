@@ -50,6 +50,13 @@ return require('packer').startup(function(use)
 
   use 'romgrk/barbar.nvim'
 
+  use {
+    'numToStr/Comment.nvim',
+    requires = { 'JoosepAlviste/nvim-ts-context-commentstring' }
+  }
+
+  use 'ggandor/lightspeed.nvim'
+
   use 'norcalli/nvim-colorizer.lua'
 
   use({ 'akinsho/toggleterm.nvim', tag = 'v2.*' })

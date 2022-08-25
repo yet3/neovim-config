@@ -54,5 +54,8 @@ map('n', '<C-a>', 'ggVG')
 map('i', '<C-a>', '<Esc>ggVG')
 
 map("n", "d", '"_d') -- Dont't save to clipboard on d
-map("n", "c", '"_c') -- Dont' save to clipboard on c 
+map("n", "c", '"_c') -- Dont' save to clipboard on c
 map("n", "X", "dd") -- Cut line on Shift+x
+
+map('n', 's', '<Plug>Lightspeed_omni_s')
+map('n', 'gs', '<Plug>Lightspeed_omni_gs')
