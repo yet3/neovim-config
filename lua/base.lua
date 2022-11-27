@@ -45,3 +45,4 @@ opt.cursorline = true -- Highlight the text line of the cursor with CursorLine |
 opt.winblend = 0
 opt.wildoptions = 'pum'
 opt.pumblend = 10
+

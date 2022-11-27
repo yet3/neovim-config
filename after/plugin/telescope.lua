@@ -37,6 +37,7 @@ telescope.setup({
 })
 
 telescope.load_extension('fzf')
+telescope.load_extension("noice")
 
 map('n', '<leader>f', ':Telescope find_files hidden=true<CR>')
 map('n', '<leader>g', ':Telescope live_grep<CR>')

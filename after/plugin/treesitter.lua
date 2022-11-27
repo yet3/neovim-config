@@ -6,7 +6,7 @@ end
 
 ts.setup({
   ensure_installed = {
-    'tsx', 'lua', 'json', 'css'
+    'tsx', 'lua', 'json', 'css', 'astro'
   },
   highlight = {
     enable = true,

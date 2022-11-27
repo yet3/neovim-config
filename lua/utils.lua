@@ -1,6 +1,6 @@
-local Utils = { }
+local Utils = {}
 
-function Utils.map(m,l,r,o)
+function Utils.map(m, l, r, o)
   local opts = { silent = true, noremap = true }
   if o then
     opts = vim.tbl_deep_extend('force', opts, o)

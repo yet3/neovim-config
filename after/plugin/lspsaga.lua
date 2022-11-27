@@ -7,6 +7,7 @@ end
 local map = require('utils').map
 
 saga.init_lsp_saga({
+  border_style = "rounded",
   finder_action_keys = {
     open = 'o',
     vsplit = 'v',
@@ -22,7 +23,7 @@ map('n', ']d', ':Lspsaga diagnostic_jump_next<CR>')
 map('n', 'gh', ':Lspsaga hover_doc<CR>')
 map('n', 'gd', ':Lspsaga lsp_finder<CR>')
 map('n', 'gk', ':Lspsaga signature_help<CR>')
-map('n', 'gp', ':Lspsaga preview_definition<CR>')
+map('n', 'gp', ':Lspsaga peek_definition<CR>')
 map('n', 'gr', ':Lspsaga rename<CR>')
 map('n', 'gl', ':Lspsaga show_line_diagnostics<CR>')
 

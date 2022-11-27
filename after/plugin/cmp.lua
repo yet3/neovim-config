@@ -6,6 +6,20 @@ end
 
 local lspkind = require('lspkind')
 
+local get_win_border = function(hi)
+  if hi == nil then hi = 'CmpBorder' end
+  return {
+    { "╭", hi },
+    { "─", hi },
+    { "╮", hi },
+    { "│", hi },
+    { "╯", hi },
+    { "─", hi },
+    { "╰", hi },
+    { "│", hi },
+  }
+end
+
 cmp.setup({
   snippet = {
     expand = function(args)
@@ -46,12 +60,30 @@ cmp.setup({
     { name = 'buffer' }
   }),
   formatting = {
-    format = lspkind.cmp_format({ with_text = false, maxwidth = 50 })
+    --[[ format = lspkind.cmp_format({ with_text = false, maxwidth = 50 }) ]]
+    fields = { "kind", "abbr", "menu" },
+    format = function(entry, vim_item)
+      local kind = require("lspkind").cmp_format({ mode = "symbol_text", maxwidth = 50 })(entry, vim_item)
+      local strings = vim.split(kind.kind, "%s", { trimempty = true })
+      kind.kind = " " .. strings[1] .. " "
+      kind.menu = "    (" .. strings[2] .. ")"
+
+      return kind
+    end,
   },
   window = {
-    documentation = cmp.config.window.bordered({
-      border = { '┌', '─', '┐', '│', '┘', '─', '└', '│' },
-    })
+    completion = {
+      winhighlight = "Normal:Pmenu",
+      border = get_win_border(),
+      col_offset = -3,
+      side_padding = 0
+    },
+    documentation = {
+      border = get_win_border(),
+    }
+    --[[ documentation = cmp.config.window.bordered({ ]]
+    --[[   border = { '┌', '─', '┐', '│', '┘', '─', '└', '│' }, ]]
+    --[[ }) ]]
   }
 })
 

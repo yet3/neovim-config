@@ -12,7 +12,7 @@ nls.setup({
   sources = {
     -- formatters
     formatting.prettierd,
-    formatting.stylua,
+    --[[ formatting.stylua, ]]
 
     -- linters
     diagnostics.eslint_d,

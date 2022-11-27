@@ -18,7 +18,18 @@ return require('packer').startup(function(use)
   use({ "wbthomason/packer.nvim", opt = true })
   use 'nvim-lua/plenary.nvim'
 
+  use({
+    "folke/noice.nvim",
+    requires = {
+      "MunifTanjim/nui.nvim",
+      "rcarriga/nvim-notify",
+    }
+  })
+
   use({ 'lalitmee/cobalt2.nvim', requires = 'tjdevries/colorbuddy.nvim' })
+  use({ "rebelot/kanagawa.nvim", requires = 'tjdevries/colorbuddy.nvim' })
+  use({ "EdenEast/nightfox.nvim", requires = 'tjdevries/colorbuddy.nvim' })
+
   use({ 'kyazdani42/nvim-web-devicons' })
 
   use 'j-hui/fidget.nvim'
@@ -63,5 +74,10 @@ return require('packer').startup(function(use)
   use({
     'kyazdani42/nvim-tree.lua',
     tag = 'nightly'
+  })
+
+  use({
+    "iamcco/markdown-preview.nvim",
+    run = function() vim.fn["mkdp#util#install"]() end,
   })
 end)

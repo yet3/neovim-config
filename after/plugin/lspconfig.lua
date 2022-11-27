@@ -23,7 +23,7 @@ local on_attach = function(client, bufnr)
     vim.lsp.buf.definition()
   end, opts)
 
-  vim.keymap.set("n", "<LEADER>p", vim.lsp.buf.formatting_seq_sync, opts)
+  vim.keymap.set("n", "<LEADER>p", vim.lsp.buf.format, opts)
 end
 
 protocol.CompletionItemKind = {
@@ -54,13 +54,13 @@ protocol.CompletionItemKind = {
   '', -- TypeParameter
 }
 
-local capabilities = require('cmp_nvim_lsp').update_capabilities(
+local capabilities = require('cmp_nvim_lsp').default_capabilities(
   vim.lsp.protocol.make_client_capabilities()
 )
 
 
 mason_lsp.setup({
-  ensure_installed = { 'sumneko_lua', 'tsserver', 'tailwindcss', 'cssls', 'jsonls', 'html', 'remark_ls', 'astro', 'volar',
+  ensure_installed = { 'sumneko_lua', 'tsserver', 'tailwindcss', 'cssls', 'jsonls', 'html', 'marksman', 'astro', 'volar',
     'lemminx', 'yamlls', 'taplo' }
 })
 

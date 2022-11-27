@@ -5,7 +5,21 @@ if (not status) then
 end
 
 local map = require('utils').map
+local utils = require("nvim-tree.utils")
 local symbols = require('ui.symbols')
+
+local function notify_level(level)
+  return function (msg)
+    if level == vim.log.levels.ERROR then
+      vim.notify(msg, level) 
+    end 
+  end
+end
+
+utils.notify.warn = notify_level(vim.log.levels.WARN)
+utils.notify.error = notify_level(vim.log.levels.ERROR)
+utils.notify.info = notify_level(vim.log.levels.INFO)
+utils.notify.debug = notify_level(vim.log.levels.DEBUG)
 
 tree.setup({
   view = {
